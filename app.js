@@ -21,10 +21,39 @@ function addItem(e){
 
     const id = new Date().getTime().toString();
 
-    if(value && editFlag){
-        console.log('edit item');
+    if(value && !editFlag){
+        let element = document.createElement('article');
+        element.classList.add('grocery-item');
+        // add id
+        // const attr = document.createAttribute('data-id');
+        // attr.value = id;
+        element.setAttribute('data-id', id);
+        element.innerHTML = `<p class="title">${value}</p>
+        <div class="btn-container">
+          <button type="button" class="edit-btn">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button type="button" class="delete-btn">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>`
+
+        // Add element to list
+        list.appendChild(element);
+
+        // display container
+        container.classList.add('show-container');
+
+        // display alert
+        displayAlert('Item added to the list', 'success');
+        
+        // add to local storage
+        addToLocalStorage(id, value)
+
+        // Set Back to Default
+        setBackToDefault()
     }
-    else if(value && !editFlag){
+    else if(value && editFlag){
         console.log('add item');            
     }
     else{
@@ -32,6 +61,7 @@ function addItem(e){
     }
 }
 
+// Display the alert
 function displayAlert(text, action){
     alert.textContent = text;
     alert.classList.add(`alert-${action}`);
@@ -42,6 +72,16 @@ function displayAlert(text, action){
         alert.classList.remove(`alert-${action}`);
     }, 1500);
 }
+
+// Set back to default
+function setBackToDefault(){
+    console.log('Set back to default');
+}
 // ****** LOCAL STORAGE **********
+function addToLocalStorage(id, value){
+    console.log('added to local storage');
+}
+
+
 
 // ****** SETUP ITEMS **********
