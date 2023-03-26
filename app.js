@@ -28,8 +28,19 @@ function addItem(e){
         console.log('add item');            
     }
     else{
-        console.log('empty value');
+        displayAlert('Please Enter Value', 'danger');
     }
+}
+
+function displayAlert(text, action){
+    alert.textContent = text;
+    alert.classList.add(`alert-${action}`);
+
+    // to remove alert after some time
+    setTimeout(() => {
+        alert.textContent = '';
+        alert.classList.remove(`alert-${action}`);
+    }, 1500);
 }
 // ****** LOCAL STORAGE **********
 
