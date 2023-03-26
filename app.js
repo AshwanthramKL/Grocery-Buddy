@@ -66,7 +66,11 @@ function addItem(e){
         setBackToDefault()
     }
     else if(value && editFlag){
-        console.log('add item');            
+        editElement.textContent = value;
+        displayAlert('successfully edited', 'success');
+        // Edit in local storage
+        // editLocalStorage(editID, value);
+        setBackToDefault();
     }
     else{
         displayAlert('Please Enter Value', 'danger');
@@ -130,7 +134,13 @@ function deleteItem(e){
 
 
 function editItem(e){
-    console.log('edit item');
+    const element = e.currentTarget.parentElement.parentElement;
+    editElement = e.currentTarget.parentElement.previousElementSibling;
+    grocery.value = editElement.textContent;
+    submitBtn.textContent = 'edit';
+    editFlag = true;
+    editID = element.dataset.id;
+
 }
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
@@ -138,7 +148,11 @@ function addToLocalStorage(id, value){
 }
 
 function removeFromLocalStorage(id){
+    console.log('removed from local storage');
+}
 
+function editLocalStorage(editID, value){
+    console.log('edited in local storage');
 }
 
 
