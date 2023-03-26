@@ -13,7 +13,12 @@ let editFlag = false;
 let editID = '';
 
 // ****** EVENT LISTENERS **********
+// form submit
 form.addEventListener("submit", addItem);
+
+// clear items
+clearBtn.addEventListener('click', clearItems); 
+
 // ****** FUNCTIONS **********
 function addItem(e){
     e.preventDefault();
@@ -70,7 +75,7 @@ function displayAlert(text, action){
     setTimeout(() => {
         alert.textContent = '';
         alert.classList.remove(`alert-${action}`);
-    }, 1500);
+    }, 1000);
 }
 
 // Set back to default
@@ -80,6 +85,26 @@ function setBackToDefault(){
     editID = '';
     submitBtn.textContent = "submit";
 }
+
+// clear items
+function clearItems(){
+    const items = document.querySelectorAll('.grocery-item');
+    
+    if(items.length > 0){
+        items.forEach((item)=>{
+            list.removeChild(item);
+        });
+            
+    }
+    // hide grocery container
+    container.classList.remove('show-container'); 
+    // display alert
+    displayAlert('Empty list', 'danger');
+    setBackToDefault();
+    // localStorage.removeItem('list);
+
+}
+
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
     console.log('added to local storage');
