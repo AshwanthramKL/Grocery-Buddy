@@ -43,6 +43,13 @@ function addItem(e){
           </button>
         </div>`
 
+        // adding event listeners to edit and delete btns
+        const deleteBtn = element.querySelector('.delete-btn');
+        const editBtn = element.querySelector('.edit-btn');
+
+        deleteBtn.addEventListener('click', deleteItem);
+        editBtn.addEventListener('click', editItem);
+
         // Add element to list
         list.appendChild(element);
 
@@ -105,6 +112,13 @@ function clearItems(){
 
 }
 
+function deleteItem(){
+    console.log('delete item');
+}
+
+function editItem(){
+    console.log('edit item');
+}
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
     console.log('added to local storage');
