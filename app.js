@@ -69,7 +69,7 @@ function addItem(e){
         editElement.textContent = value;
         displayAlert('successfully edited', 'success');
         // Edit in local storage
-        // editLocalStorage(editID, value);
+        editLocalStorage(editID, value);
         setBackToDefault();
     }
     else{
@@ -162,13 +162,19 @@ function removeFromLocalStorage(id){
         }
     })
 
-    // console.log(items);
-
     localStorage.setItem('list', JSON.stringify(items));
 }
 
 function editLocalStorage(editID, value){
-    console.log('edited in local storage');
+    let items = getLocalStorage();
+    items = items.map((item) =>{
+        if(editID === item.id){
+            item.value = value;
+        
+        return item;
+        }
+    });
+    localStorage.setItem('list', JSON.stringify(items));
 }
 
 function getLocalStorage(){
