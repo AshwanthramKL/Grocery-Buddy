@@ -144,7 +144,14 @@ function editItem(e){
 }
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
-    console.log('added to local storage');
+    // console.log('added to local storage');
+    // each time you setitem the existing items get overwritten, hence we use a list
+    let grocery = {id, value};
+    let items = getLocalStorage();
+    console.log(items);
+
+    items.push(grocery);
+    localStorage.setItem('list', JSON.stringify(items));
 }
 
 function removeFromLocalStorage(id){
@@ -155,5 +162,12 @@ function editLocalStorage(editID, value){
     console.log('edited in local storage');
 }
 
-
+function getLocalStorage(){
+    return localStorage.getItem('list')?JSON.parse(localStorage.getItem('list')): [];
+}
+// ****** LocalStorage functions ******
+// localStorage.setItem('orange', JSON.stringify(['item1', 'item2']));
+// const oranges = JSON.parse(localStorage.getItem('orange'));
+// console.log(oranges);
+// localStorage.removeItem('orange');
 // ****** SETUP ITEMS **********
