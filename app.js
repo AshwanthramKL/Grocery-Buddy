@@ -112,7 +112,7 @@ function clearItems(){
     // display alert
     displayAlert('Empty list', 'danger');
     setBackToDefault();
-    // localStorage.removeItem('list');
+    localStorage.removeItem('list');
 
 }
 
@@ -129,7 +129,7 @@ function deleteItem(e){
     displayAlert('item removed', 'danger');
     // set back to default
     setBackToDefault();
-    // removeFromLocalStorage(id);
+    removeFromLocalStorage(id);
 }
 
 
@@ -144,18 +144,27 @@ function editItem(e){
 }
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
-    // console.log('added to local storage');
     // each time you setitem the existing items get overwritten, hence we use a list
     let grocery = {id, value};
     let items = getLocalStorage();
-    console.log(items);
+    // console.log(items);
 
     items.push(grocery);
     localStorage.setItem('list', JSON.stringify(items));
 }
 
 function removeFromLocalStorage(id){
-    console.log('removed from local storage');
+    let items = getLocalStorage();
+
+    items = items.filter((item) => {
+        if(id !== item.id){
+            return item;
+        }
+    })
+
+    // console.log(items);
+
+    localStorage.setItem('list', JSON.stringify(items));
 }
 
 function editLocalStorage(editID, value){
