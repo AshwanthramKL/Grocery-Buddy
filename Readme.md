@@ -1,6 +1,6 @@
-# Scroll project
+# Grocery Buddy
 
-This is a solution to the Scroll project which is a part of John Smilga's 15 JS projects tutorial.
+This is a solution to the Grocery Buddy(to-do list) project which is a part of John Smilga's 15 JS projects tutorial.
 
 ## Table of contents
 
@@ -21,15 +21,14 @@ Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size.
 - See hover states for all interactive elements on the page.
-- Scroll through the different sections of the website.
-- Use the links to navigate to the sections.
-- View the fixed navbar and scroll-to-top button on scrolling beyond a certain point
+- Add, Delete and Edit items to the list.
+- View the past saved items on Loading of website
 ### Screenshot
 
 #### Full Screen
-![Full screen](./images/Website_preview.jpg)
-#### Paused Video Display
-![Paused screen](./images/Fixed_navbar.jpg)
+![Full screen](./images/Website_preview.png)
+#### Added items Display
+![Paused screen](./images/AddItemsView.png)
 
 ### Links
 
@@ -51,8 +50,8 @@ Users should be able to:
 This project helped me recap over some concepts of CSS and JS such as  Event listerners, DOM manipulation techniques including:
 - classList
 - Class addition and removal
-
-
+- eventListeners
+- LocalStorage
 
 ## Author
 
