@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution URL](https://github.com/AshwanthramKL/Scroll-Project)
-- Live Site URL: [Live site URL](https://ashwanthramkl.github.io/Scroll-Project/)
+- Solution URL: [Solution URL](https://github.com/AshwanthramKL/Grocery-Buddy)
+- Live Site URL: [Live site URL](https://ashwanthramkl.github.io/Grocery-Buddy/)
 
 ## My process
 
